@@ -1,0 +1,278 @@
+# gotit
+-- Gui to Lua
+-- Version: 3
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local RedXGUI = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local speed = Instance.new("TextButton")
+local gravity = Instance.new("TextButton")
+local clickTP = Instance.new("TextButton")
+local btools = Instance.new("TextButton")
+local autocash = Instance.new("TextButton")
+local fling = Instance.new("TextButton")
+local fps = Instance.new("TextButton")
+local speed_2 = Instance.new("TextButton")
+local TextLabel_3 = Instance.new("TextLabel")
+local close = Instance.new("TextButton")
+local TextLabel_4 = Instance.new("TextLabel")
+local open = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+RedXGUI.Name = "RedXGUI"
+RedXGUI.Parent = ScreenGui
+RedXGUI.BackgroundColor3 = Color3.new(0.666667, 1, 1)
+RedXGUI.BorderSizePixel = 4
+RedXGUI.Position = UDim2.new(0.465026885, 0, 0.275590599, 0)
+RedXGUI.Size = UDim2.new(0, 535, 0, 338)
+RedXGUI.Visible = false
+RedXGUI.Active = true
+RedXGUI.Draggable = true
+
+TextLabel.Parent = RedXGUI
+TextLabel.BackgroundColor3 = Color3.new(0.435294, 0.168627, 0.52549)
+TextLabel.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel.BorderSizePixel = 3
+TextLabel.Position = UDim2.new(0.0200752541, 0, -0.0384615362, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "REDX  ADOPTME- TURNINGGLOBE"
+TextLabel.TextColor3 = Color3.new(0, 0, 0)
+TextLabel.TextSize = 14
+
+TextLabel_2.Parent = RedXGUI
+TextLabel_2.BackgroundColor3 = Color3.new(0.262745, 0.0666667, 0.435294)
+TextLabel_2.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_2.BorderSizePixel = 3
+TextLabel_2.Position = UDim2.new(-0.287850469, 0, 0.514792919, 0)
+TextLabel_2.Rotation = 90
+TextLabel_2.Size = UDim2.new(0, 289, 0, 11)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = ""
+TextLabel_2.TextColor3 = Color3.new(0, 0, 0)
+TextLabel_2.TextSize = 14
+
+speed.Name = "speed"
+speed.Parent = RedXGUI
+speed.BackgroundColor3 = Color3.new(0.666667, 0, 0)
+speed.BackgroundTransparency = 0.5
+speed.BorderColor3 = Color3.new(0.258824, 0.0901961, 0.4)
+speed.BorderSizePixel = 3
+speed.Position = UDim2.new(0.0186915882, 0, 0.189349115, 0)
+speed.Size = UDim2.new(0, 137, 0, 31)
+speed.Font = Enum.Font.Gotham
+speed.Text = "SPEED[X]"
+speed.TextColor3 = Color3.new(0, 0, 0)
+speed.TextScaled = true
+speed.TextSize = 14
+speed.TextWrapped = true
+speed.MouseButton1Down:connect(function()
+	local walkspeedplayer = game:GetService("Players").LocalPlayer
+	local walkspeedmouse = walkspeedplayer:GetMouse()
+	
+	local walkspeedenabled = false
+	
+	function x_walkspeed(key)
+		if (key == "x") then
+			if walkspeedenabled == false then
+				_G.WS = 200;
+				local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+				Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+				Humanoid.WalkSpeed = _G.WS;
+				end)
+				Humanoid.WalkSpeed = _G.WS;
+				
+				walkspeedenabled = true
+			elseif walkspeedenabled == true then
+				_G.WS = 20;
+				local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+				Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+				Humanoid.WalkSpeed = _G.WS;
+				end)
+				Humanoid.WalkSpeed = _G.WS;
+				
+				walkspeedenabled = false
+			end
+		end
+	end
+	
+	walkspeedmouse.KeyDown:connect(x_walkspeed)
+	
+end)
+
+gravity.Name = "gravity"
+gravity.Parent = RedXGUI
+gravity.BackgroundColor3 = Color3.new(0.666667, 0, 0)
+gravity.BackgroundTransparency = 0.5
+gravity.BorderColor3 = Color3.new(0.258824, 0.0901961, 0.4)
+gravity.BorderSizePixel = 3
+gravity.Position = UDim2.new(0.355140209, 0, 0.189349115, 0)
+gravity.Size = UDim2.new(0, 137, 0, 31)
+gravity.Font = Enum.Font.Gotham
+gravity.Text = "GRAVITY"
+gravity.TextColor3 = Color3.new(0, 0, 0)
+gravity.TextScaled = true
+gravity.TextSize = 14
+gravity.TextWrapped = true
+gravity.MouseButton1Down:connect(function()
+if Gravity == true then
+Gravity = false
+game.workspace.Gravity = 196.2
+else
+Gravity = true
+game.workspace.Gravity = 45
+end
+end)
+
+clickTP.Name = "clickTP"
+clickTP.Parent = RedXGUI
+clickTP.BackgroundColor3 = Color3.new(0.666667, 0, 0)
+clickTP.BackgroundTransparency = 0.5
+clickTP.BorderColor3 = Color3.new(0.258824, 0.0901961, 0.4)
+clickTP.BorderSizePixel = 3
+clickTP.Position = UDim2.new(0.693457961, 0, 0.189349115, 0)
+clickTP.Size = UDim2.new(0, 137, 0, 31)
+clickTP.Font = Enum.Font.Gotham
+clickTP.Text = "CLICKTP[N]"
+clickTP.TextColor3 = Color3.new(0, 0, 0)
+clickTP.TextScaled = true
+clickTP.TextSize = 14
+clickTP.TextWrapped = true
+clickTP.MouseButton1Click:Connect(function()
+	toggle = true
+    togglekey = "n" --Key that you will use to toggle the on and off
+    killkey   = "k" --Key that you will use to kill a player
+    function Hint(txt)
+        local b = Instance.new('Hint', workspace)
+        b.Text = txt
+        wait(2)
+        b:Destroy()
+    end
+    Local = game:GetService('Players').LocalPlayer
+    Mouse = Local:GetMouse()
+    Mouse.Button1Down:connect(function()
+        pcall(function()
+            if toggle then
+                Local.Character.HumanoidRootPart.CFrame = Local:GetMouse().Hit
+            end
+        end)
+    end)
+    Mouse.KeyDown:connect(function(key)
+        if key == togglekey then
+            if toggle then
+                toggle = false
+                Hint('Turned Off!')
+                print ('Turned Off!')
+            else
+                toggle = true
+                Hint('Turned On!')
+                print ('Turned On!')
+            end
+        elseif key == killkey then
+            if toggle then
+                pcall(function()
+                    Mouse.Target.Parent:FindFirstChild('Humanoid').Health = 0
+                    Hint('Killed ' .. Mouse.Target.Parent.Name)
+                end)
+            end
+        end
+    end)
+end)
+
+btools.Name = "btools"
+btools.Parent = RedXGUI
+btools.BackgroundColor3 = Color3.new(0.666667, 0, 0)
+btools.BackgroundTransparency = 0.5
+btools.BorderColor3 = Color3.new(0.258824, 0.0901961, 0.4)
+btools.BorderSizePixel = 3
+btools.Position = UDim2.new(0.0186915882, 0, 0.423076928, 0)
+btools.Size = UDim2.new(0, 137, 0, 31)
+btools.Font = Enum.Font.Gotham
+btools.Text = "BTOOLS"
+btools.TextColor3 = Color3.new(0, 0, 0)
+btools.TextScaled = true
+btools.TextSize = 14
+btools.TextWrapped = true
+btools.MouseButton1Down:connect(function()
+	game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+for index, child in pairs(game:GetService("Workspace"):GetChildren()) do
+   if child.ClassName == "Part" then
+       child.Locked = false
+   end
+   if child.ClassName == "MeshPart" then
+       child.Locked = false
+   end
+   if child.ClassName == "UnionOperation" then
+       child.Locked = false
+   end
+   if child.ClassName == "Model" then
+       for index, chil in pairs(child:GetChildren()) do
+           if chil.ClassName == "Part" then
+               chil.Locked = false
+           end
+           if chil.ClassName == "MeshPart" then
+               chil.Locked = false
+           end
+           if chil.ClassName == "UnionOperation" then
+               chil.Locked = false
+           end
+           if chil.ClassName == "Model" then
+               for index, childe in pairs(chil:GetChildren()) do
+                   if childe.ClassName == "Part" then
+                       childe.Locked = false
+                   end
+                   if childe.ClassName == "MeshPart" then
+                       childe.Locked = false
+                   end
+                   if childe.ClassName == "UnionOperation" then
+                       childe.Locked = false
+                   end
+                   if childe.ClassName == "Model" then
+                       for index, childeo in pairs(childe:GetChildren()) do
+                           if childeo.ClassName == "Part" then
+                               childeo.Locked = false
+                           end
+                           if childeo.ClassName == "MeshPart" then
+                               childeo.Locked = false
+                           end
+                           if childeo.ClassName == "UnionOperation" then
+                               childeo.Locked = false
+                           end
+                           if childeo.ClassName == "Model" then
+                           end
+                       end
+                   end
+               end
+           end
+       end
+   end
+end
+c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+c.BinType = Enum.BinType.Hammer
+c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+c.BinType = Enum.BinType.Clone
+c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+c.BinType = Enum.BinType.Grab
+end)
+
+autocash.Name = "autocash"
+autocash.Parent = RedXGUI
+autocash.BackgroundColor3 = Color3.new(0.666667, 0, 0)
+autocash.BackgroundTransparency = 0.5
+autocash.BorderColor3 = Color3.new(0.258824, 0.0901961, 0.4)
+autocash.BorderSizePixel = 3
+autocash.Position = UDim2.new(0.355140209, 0, 0.423076928, 0)
+autocash.Size = UDim2.new(0, 137, 0, 31)
+autocash.Font = Enum.Font.Gotham
+autocash.Text = "AUTOCASH"
+autocash.TextColor3 = Color3.new(0, 0, 0)
+autocash.TextScaled = true
+autocash.TextSize = 14
+autocash.TextWrapped = tru
